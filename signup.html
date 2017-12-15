@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link async href="http://fonts.googleapis.com/css?family=Monoton" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"
+    />
+    <script type="text/javascript" script-name="aguafina-script" src="http://use.edgefonts.net/aguafina-script.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="card horizontal">
+            <div class="card-stacked">
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col s12 center">
+                            <h1>
+                                <span class="headline">Movie</span>
+
+                            </h1>
+                            <div class="row">
+                                <p>
+                                    <span class="subheader">Buddy</span>
+                                </p>
+                            </div>
+                            <h7>
+                                <span class="tagger">Sign up for the ultimate movie experience with a new buddy!</span>
+                            </h7>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col s3 center">
+                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="" class="circle responsive-img">
+                            <a class="btn-floating btn-tiny waves-effect waves-light red">
+                                <i class="material-icons">add</i>
+                            </a>
+                        </div>
+                        <div class="col s9 center">
+                            <div class="row center">
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <i class="material-icons prefix small">face</i>
+                                            <input id="icon_prefix" type="text" class="validate">
+                                            <label for="icon_prefix">First Name</label>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s6">
+                                                <i class="material-icons prefix small">email</i>
+                                                <input id="icon_prefix" type="text" class="validate">
+                                                <label for="icon_prefix">Email</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <i class="material-icons prefix small ">place</i>
+                                        <input id="icon_prefix" type="text" class="validate">
+                                        <label for="icon_prefix">Zip Code</label>
+                                    </div>
+
+                                    <div class="input-field col s3 center">
+                                        <a class='dropdown-button btn red' href='#' data-activates='dropdown1'>Age</a>
+
+                                        <ul id='dropdown1' class='dropdown-content'>
+                                            <li><a href="#!">18-24</a></li>
+                                            <li><a href="#!">25-34</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#!">35-45</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="input-field col s3 center">
+                                        <a class='dropdown-button btn red' href='#' data-activates='dropdown2'> Fav. Genre</a>
+
+                                        <ul id='dropdown2' class='dropdown-content'>
+                                            <li>
+                                                <a href="#!">Action</a>
+                                            </li>
+                                            <li>
+                                                <a href="#!">Comedy</a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a href="#!">Horror</a>
+                                            </li>
+                                            <li>
+                                                <a href="#!">Romance</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <br>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col s6 m12 center">
+                            <div class="card red">
+                                <div class="card-content blacks-text">
+
+                                    <div class="row">
+                                        <form class="col s12">
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <textarea id="textarea1" class="materialize-textarea" data-length="120"></textarea>
+                                                    <label for="textarea1" class="white-text">Tell everyone about yourself!</label>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row center">
+                        <button class="btn waves-effect waves-light grey" type="submit" name="action">ACTION
+                            <i class="material-icons">movie_filter</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <script class="type/javascript">
+        $('.dropdown-button').dropdown({ inDuration: 300, outDuration: 225, constrainWidth: false, hover: true, alignment: 'left',
+        stopPropagation: false } );
+
+    </script>
+</body>
+
+</html>
