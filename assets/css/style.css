@@ -5,6 +5,7 @@
     padding: 20px;
     border: none;
     font: normal 60px/1 "Monoton", Helvetica, sans-serif;
+
     color: rgba(255, 255, 255, 1);
     text-align: center;
     -o-text-overflow: ellipsis;
@@ -14,6 +15,7 @@
     -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
     -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
     transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+
 }
 
 .headline:hover {
@@ -35,11 +37,13 @@
     -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
     -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
     transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+
 }
 
 .subheader:hover {
     text-shadow: 0 0 10px rgba(11, 116, 148, 0.815), 0 0 20px rgb(63, 160, 184), 0 0 30px rgb(39, 129, 156), 0 0 20px rgb(63, 160, 184), 0 0 20px rgb(63, 160, 184), 0 0 20px rgb(126, 204, 221), 0 0 100px #00ffff;
 }
+
 
 .nowTitle {
     color: red;
@@ -201,3 +205,4 @@ input[type=button] {
 input[type=button]:hover {
     background: linear-gradient(#ffdd7f 5%, #ffbc00 100%);
 }
+
