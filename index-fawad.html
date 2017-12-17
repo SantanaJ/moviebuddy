@@ -120,17 +120,21 @@
                             <a class='dropdown-button btn red' href='#' data-activates='dropdown1'>Genre</a>
                             <ul id='dropdown1' class='dropdown-content'>
                                 <li>
-                                    <a href="#!">Action</a>
+                                    <a class = "genreButton" href="#!">Action</a>
                                 </li>
+                                <li class="divider"></li>
+
                                 <li>
-                                    <a href="#!">Comedy</a>
+                                    <a class = "genreButton" href="#!">Comedy</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="#!">Drama</a>
+                                    <a class = "genreButton" href="#!">Drama</a>
                                 </li>
+                                <li class="divider"></li>
+
                                 <li>
-                                    <a href="#!">Romance</a>
+                                    <a class = "genreButton" href="#!">Romance</a>
                                 </li>
                             </ul>
                         </div>
@@ -193,8 +197,8 @@
         });
 
         anime.timeline({
-            loop: true
-        })
+                loop: true
+            })
             .add({
                 targets: '.headline .letter',
                 opacity: [0, 1],
