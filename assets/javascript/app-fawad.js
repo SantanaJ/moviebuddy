@@ -54,6 +54,7 @@ $.ajax({
   });
 
 $(".searchButton").on("click", function () {
+  // to empty div
   $(".card").empty();
 
 
