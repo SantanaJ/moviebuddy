@@ -54,6 +54,9 @@ $.ajax({
   });
 
 $(".searchButton").on("click", function () {
+  // to empty div
+  $(".card").empty();
+
 
   var searchMovie = $("#search").val().trim();
   console.log(searchMovie);
