@@ -399,6 +399,4 @@ function matchingAlgo(){
 }
 
 $(document).on("click", ".movie", onClickAddMovie);
-console.log(userName)
-$('#userName').text(userInfo.userName);
-$('#aboutMe').text(aboutMe)
+
