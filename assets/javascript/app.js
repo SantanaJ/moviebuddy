@@ -270,6 +270,9 @@ $(".addAgeProfile").click(function() {
 
 });
 
+
+
+
 //Login button click
 $("#login-button").on("click",function(){
     //Get email and zipcode from form
@@ -279,7 +282,7 @@ $("#login-button").on("click",function(){
     for (var userIndex=0;userIndex<userList.length;++userIndex){
         if (userList[userIndex].email === email && userList[userIndex].zipCode === zipCode){
             loginUser(userList[userIndex].userName);
-            window.location = "index.html"; 
+            window.location = "personalprofile.html"; 
         }  
     }
 
@@ -302,16 +305,19 @@ function loginUser(username){
     // Change menubar from logged out to logged in
     $('#logged-out-navbar').css("display","none");
     $('#logged-in-navbar').css("display","inline");
-    
+
+
 }
 
 //Logout User
 $("#logout-button").on("click",function(){
+    console.log("hi");
     localStorage.removeItem("username"); // Delete Local Data
     loggedIn = 0;
     // Change menubar from logged in to logged out
-    $('#logged-in-navbar').css("display","none");
-    $('#logged-out-navbar').css("display","inline");
+    // $('#logged-in-navbar').css("display","none");
+    // $('#logged-out-navbar').css("display","inline");
+    window.location = "index.html";
 })
 
 

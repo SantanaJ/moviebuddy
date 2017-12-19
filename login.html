@@ -57,21 +57,21 @@
                                         <div class="row">
                                             <div class="input-field col s6">
                                                 <i class="material-icons prefix small">email</i>
-                                                <input id="icon_prefix" type="text" class="validate">
-                                                <label for="icon_prefix">Email</label>
+                                                <input id="login-email" type="text" class="validate">
+                                                <label for="login-email">Email</label>
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s6">
                                                     <i class="material-icons prefix small">explore</i>
-                                                    <input id="icon_prefix" type="text" class="validate">
-                                                    <label for="icon_prefix">Zip Code</label>
+                                                    <input id="login-zipcode" type="text" class="validate">
+                                                    <label for="login-zipcode">Zip Code</label>
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                         <div class="row center">
-                            <button class="btn waves-effect waves-light grey" type="submit" name="action">ACTION
+                            <button class="btn waves-effect waves-light grey" type="submit" name="action" id="login-button">ACTION
                                 <i class="material-icons">movie_filter</i>
                             </button>
                         </div>
@@ -89,6 +89,11 @@
             stopPropagation: false } );
     
         </script>
+            <!-- insert firebase -->
+        <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    
+        <!-- insert javascript link -->
+        <script src='assets/javascript/app.js'></script>
     </body>
     
     </html>
