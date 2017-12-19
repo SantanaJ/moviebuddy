@@ -14,6 +14,7 @@ var database = firebase.database();
 var currentUser;
 var loggedIn = 0;
 var userList = [];
+var userInfo;
 
 
 // Fawad.js
@@ -191,6 +192,11 @@ function sliderPlay() {
 
 // End of Fawad.js
 
+    // Set Navbar visibility to 'loggedout'
+    $('#logged-in-navbar').css("display","none");
+    $('#logged-out-navbar').css("display","inline");
+
+
 
 //Interact with Firebase
 // name and zip code input/ store
@@ -295,13 +301,15 @@ function loginUser(username){
     loggedIn = 1;
 
     // set Current User from database
-    for (var userIndex=0;userIndex<userList.length;++userIndex){
-        if (userList[userIndex].userName===username){
-            currentUser = userList[userIndex];
-        }
-    }
+    // for (var userIndex=0;userIndex<userList.length;++userIndex){
+    //     if (userList[userIndex].userName===username){
+    //         currentUser = userList[userIndex];
+    //     }
+    // }
+    currentUser = getUser(username);
     console.log(currentUser);
     localStorage.setItem("username", username); // save username to localdata
+    localStorage.setItem("userinfo",currentUser);
     // Change menubar from logged out to logged in
     $('#logged-out-navbar').css("display","none");
     $('#logged-in-navbar').css("display","inline");
@@ -311,18 +319,27 @@ function loginUser(username){
 
 //Logout User
 $("#logout-button").on("click",function(){
-    console.log("hi");
     localStorage.removeItem("username"); // Delete Local Data
     loggedIn = 0;
     // Change menubar from logged in to logged out
-    // $('#logged-in-navbar').css("display","none");
-    // $('#logged-out-navbar').css("display","inline");
+
     window.location = "index.html";
 })
 
 
 
 
+// Get user
+function getUser(username){
+  var user;
+  for (var userIndex=0;userIndex<userList.length;++userIndex){
+    if (userList[userIndex].userName===username){
+        user = userList[userIndex];
+        return user;
+    }
+  }
+  return user;
+}
 
 
 
