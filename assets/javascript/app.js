@@ -255,7 +255,8 @@ if (userNames.indexOf(userName)<0){
   // Login User
  loginUser(userName);
 
-  // go back to home page
+  // go back to profile page
+  localStorage.setItem("userinfo",getUser(localStorage.getItem("username")));
   window.location = "personalprofile.html";
 
 }
@@ -288,6 +289,7 @@ $("#login-button").on("click",function(){
     for (var userIndex=0;userIndex<userList.length;++userIndex){
         if (userList[userIndex].email === email && userList[userIndex].zipCode === zipCode){
             loginUser(userList[userIndex].userName);
+            localStorage.setItem("userinfo",getUser(localStorage.getItem("username")));
             window.location = "personalprofile.html"; 
         }  
     }
@@ -312,20 +314,20 @@ function loginUser(username){
 
 }
 
-//Logout User
-$("#logout-button").on("click",function(){
-    localStorage.removeItem("username"); // Delete Local Data
-    loggedIn = 0;
-    // Change menubar from logged in to logged out
+// //Logout User
+// $("#logout-button").on("click",function(){
+//     localStorage.removeItem("username"); // Delete Local Data
+//     loggedIn = 0;
+//     // Change menubar from logged in to logged out
 
-    window.location = "index.html";
-});
+//     window.location = "index.html";
+// });
 
 //On button click Profile Page
 $("#user-profile-button").on("click",function(){
 
-
-  localStorage.setItem("userinfo",getUser(localStorage.setItem("username")));
+  localStorage.setItem("userinfo",getUser(localStorage.getItem("username")));
+  window.location = "personalprofile.html";
 
 });
 
