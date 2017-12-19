@@ -50,8 +50,11 @@ $.ajax({
       movieImage.attr("src", posterURL);
       movieImage.attr("href", carouselID[j]);
       movieImage.attr("title", results_TMDB[j].title);
+    //   movieImage.attr("data-title",results_TMDB[j].title);
+    //   movieImage.addClass("movie");
 
       movieDiv.append(movieImage);
+
 
       $(".carousel").append(movieDiv);
 
@@ -93,8 +96,8 @@ $(".searchButton").on("click", function () {
         var movieImageSearch = $("<img id = searchMovieImage>");
 
         movieImageSearch.attr("src", posterURL_OMDB);
-        // movieImageSearch.attr("href", carouselID_movieSearch[k]);
-        movieImageSearch.attr("title", results_OMDB.Search[k].Title);
+        movieImageSearch.attr("data-title",results_OMDB.Search[k].Title);
+        movieImageSearch.addClass("movie");
 
         movieSearchDiv.append(movieImageSearch);
 
@@ -154,6 +157,7 @@ $(".genreButton").on("click", function () {
 
         movieImage.attr("src", posterURL);
         movieImage.attr("data-title",title);
+        movieImage.addClass("movie");
 
         titleDiv.append(title);
         movieDiv.append(titleDiv);
@@ -214,6 +218,7 @@ database.ref().on("value", function(snapshot) {
     matchingAlgo();
   }
 
+
 });
 
 
@@ -265,6 +270,22 @@ $(".addAgeProfile").click(function() {
 
 });
 
+//Login button click
+$("#login-button").on("click",function(){
+    //Get email and zipcode from form
+    email = $("#login-email").val().trim();
+    zipCode = $("#login-zipcode").val().trim();
+    //Loop through UserList until an email and zipcode match
+    for (var userIndex=0;userIndex<userList.length;++userIndex){
+        if (userList[userIndex].email === email && userList[userIndex].zipCode === zipCode){
+            loginUser(userList[userIndex].userName);
+            window.location = "index.html"; 
+        }  
+    }
+
+});
+
+
 
 // Login User
 function loginUser(username){
@@ -279,13 +300,21 @@ function loginUser(username){
     console.log(currentUser);
     localStorage.setItem("username", username); // save username to localdata
     // Change menubar from logged out to logged in
+    $('#logged-out-navbar').css("display","none");
+    $('#logged-in-navbar').css("display","inline");
+    
 }
 
 //Logout User
-// On button click logout
-// localStorage.removeItem("username"); // Delete Local Data
-// set loggedIn = 0;
-// Change menubar from logged in to logged out
+$("#logout-button").on("click",function(){
+    localStorage.removeItem("username"); // Delete Local Data
+    loggedIn = 0;
+    // Change menubar from logged in to logged out
+    $('#logged-in-navbar').css("display","none");
+    $('#logged-out-navbar').css("display","inline");
+})
+
+
 
 
 
@@ -330,41 +359,43 @@ function customSort(A,B){
 }
 function matchingAlgo(){
   var score = [];
+  var users = userList;
+  //Remove Yourself from the List (Can't match with yourself)
+  users.splice(userNames.indexOf(currentUser.userName), 1);
+
   //Loop Through Users
-  for (var userIndex=0;userIndex<userList.length;++userIndex){
+  for (var userIndex=0;userIndex<users.length;++userIndex){
       score[userIndex]=0;
       for (var movieIndex=0;movieIndex<currentUser.movies.length;++movieIndex){
-          if (userList[userIndex].movies.indexOf(currentUser.movies[movieIndex]) > -1){
+          if (users[userIndex].movies.indexOf(currentUser.movies[movieIndex]) > -1){
               
               score[userIndex]++; //Add Score for each movie matched
           }
       }
 
-      if (userList[userIndex].genres === currentUser.genres){
+      if (users[userIndex].genres === currentUser.genres){
               
               score[userIndex]++; //Add Score if genre matched
       }
   }
-  var mostMatched = customSort(userList,score);
+  var mostMatched = customSort(users,score);
 
     if (mostMatched.length > 0){
-        $("#friend-1-name").text("Name: " + mostMatched[0].userName);
+        $("#friend-1-name").text(mostMatched[0].userName);
         $("#friend-1-info").html("Age: " + mostMatched[0].age + "<br>" + "Favorite Genre: " + mostMatched[0].genres);
     }
     if (mostMatched.length > 1){
-        $("#friend-2-name").text("Name: " + mostMatched[1].userName);
+        $("#friend-2-name").text(mostMatched[1].userName);
         $("#friend-2-info").html("Age: " + mostMatched[1].age + "<br>" + "Favorite Genre: " + mostMatched[1].genres);
     }
     if (mostMatched.length > 2){
-        $("#friend-3-name").text("Name: " + mostMatched[2].userName);
+        $("#friend-3-name").text(mostMatched[2].userName);
         $("#friend-3-info").html("Age: " + mostMatched[2].age + "<br>" + "Favorite Genre: " + mostMatched[2].genres);
     }
 
-    
-
 }
 
-$(document).on("click", ".genreMovieImage", onClickAddMovie);
+$(document).on("click", ".movie", onClickAddMovie);
 
 
 
