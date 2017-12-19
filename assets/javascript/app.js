@@ -11,7 +11,7 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 
-var currentUser;
+var userInfo;
 var loggedIn = 0;
 var userList = [];
 
@@ -297,10 +297,10 @@ function loginUser(username){
     // set Current User from database
     for (var userIndex=0;userIndex<userList.length;++userIndex){
         if (userList[userIndex].userName===username){
-            currentUser = userList[userIndex];
+            userInfo = userList[userIndex];
         }
     }
-    console.log(currentUser);
+    console.log(userInfo);
     localStorage.setItem("username", username); // save username to localdata
     // Change menubar from logged out to logged in
     $('#logged-out-navbar').css("display","none");
@@ -323,17 +323,14 @@ $("#logout-button").on("click",function(){
 
 
 
-
-
-
 // Add Movie to User Profile
 
 function onClickAddMovie(){
     movieTitle = $(this).attr("data-title");
     // Can only add movies if logged in
-    if (loggedIn && (currentUser.movies.indexOf(movieTitle)<0) ){
-        currentUser.movies.push(movieTitle); //add movies to the user profile
-        database.ref(currentUser.userName).set(currentUser);
+    if (loggedIn && (userInfo.movies.indexOf(movieTitle)<0) ){
+        userInfo.movies.push(movieTitle); //add movies to the user profile
+        database.ref(userInfo.userName).set(userInfo);
     }
 }
 
@@ -367,19 +364,19 @@ function matchingAlgo(){
   var score = [];
   var users = userList;
   //Remove Yourself from the List (Can't match with yourself)
-  users.splice(userNames.indexOf(currentUser.userName), 1);
+  users.splice(userNames.indexOf(userInfo.userName), 1);
 
   //Loop Through Users
   for (var userIndex=0;userIndex<users.length;++userIndex){
       score[userIndex]=0;
-      for (var movieIndex=0;movieIndex<currentUser.movies.length;++movieIndex){
-          if (users[userIndex].movies.indexOf(currentUser.movies[movieIndex]) > -1){
+      for (var movieIndex=0;movieIndex<userInfo.movies.length;++movieIndex){
+          if (users[userIndex].movies.indexOf(userInfo.movies[movieIndex]) > -1){
               
               score[userIndex]++; //Add Score for each movie matched
           }
       }
 
-      if (users[userIndex].genres === currentUser.genres){
+      if (users[userIndex].genres === userInfo.genres){
               
               score[userIndex]++; //Add Score if genre matched
       }
@@ -402,6 +399,6 @@ function matchingAlgo(){
 }
 
 $(document).on("click", ".movie", onClickAddMovie);
-
-
-
+console.log(userName)
+$('#userName').text(userInfo.userName);
+$('#aboutMe').text(aboutMe)
