@@ -193,8 +193,8 @@ function sliderPlay() {
 // End of Fawad.js
 
     // Set Navbar visibility to 'loggedout'
-    $('#logged-in-navbar').css("display","none");
-    $('#logged-out-navbar').css("display","inline");
+    $('#logged-in-navbar').css("visibility","hidden");
+    $('#logged-out-navbar').css("visibility","visible");
 
 
 
@@ -256,7 +256,7 @@ if (userNames.indexOf(userName)<0){
  loginUser(userName);
 
   // go back to home page
-  window.location = "index.html";
+  window.location = "personalprofile.html";
 
 }
 else {
@@ -301,18 +301,13 @@ function loginUser(username){
     loggedIn = 1;
 
     // set Current User from database
-    // for (var userIndex=0;userIndex<userList.length;++userIndex){
-    //     if (userList[userIndex].userName===username){
-    //         currentUser = userList[userIndex];
-    //     }
-    // }
     currentUser = getUser(username);
     console.log(currentUser);
     localStorage.setItem("username", username); // save username to localdata
-    localStorage.setItem("userinfo",currentUser);
+    // localStorage.setItem("userinfo",currentUser);
     // Change menubar from logged out to logged in
-    $('#logged-out-navbar').css("display","none");
-    $('#logged-in-navbar').css("display","inline");
+    $('#logged-out-navbar').css("visibility","hidden");
+    $('#logged-in-navbar').css("visibility","visible");
 
 
 }
@@ -324,9 +319,15 @@ $("#logout-button").on("click",function(){
     // Change menubar from logged in to logged out
 
     window.location = "index.html";
-})
+});
+
+//On button click Profile Page
+$("#user-profile-button").on("click",function(){
 
 
+  localStorage.setItem("userinfo",getUser(localStorage.setItem("username")));
+
+});
 
 
 // Get user
