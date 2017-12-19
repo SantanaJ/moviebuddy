@@ -62,14 +62,14 @@
                                     <div class="row">
                                         <div class="input-field col s6">
                                             <i class="material-icons prefix small">face</i>
-                                            <input id="input-firstname" type="text" class="validate">
-                                            <label for="input-firstname">First Name</label>
+                                            <input id="icon_prefix" type="text" class="validate">
+                                            <label for="icon_prefix">First Name</label>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s6">
                                                 <i class="material-icons prefix small">email</i>
-                                                <input id="input-email" type="text" class="validate">
-                                                <label for="input-email">Email</label>
+                                                <input id="icon_prefix" type="text" class="validate">
+                                                <label for="icon_prefix">Email</label>
                                             </div>
                                         </div>
                                     </div>
@@ -79,43 +79,43 @@
                                 <div class="row">
                                     <div class="input-field col s6">
                                         <i class="material-icons prefix small ">place</i>
-                                        <input id="input-zipcode" type="text" class="validate">
-                                        <label for="input-zipcode">Zip Code</label>
+                                        <input id="icon_prefix" type="text" class="validate">
+                                        <label for="icon_prefix">Zip Code</label>
                                     </div>
 
                                     <div class="input-field col s3 center">
-                                        <a class='dropdown-button btn red' href='#' data-activates='dropdown1' id="addAgeLabel">Age</a>
+                                        <a class='dropdown-button btn red' href='#' data-activates='dropdown1'>Age</a>
 
                                         <ul id='dropdown1' class='dropdown-content'>
                                             <li>
-                                                <a class="addAgeProfile" href="#!">18-24</a>
+                                                <a href="#!">18-24</a>
                                             </li>
                                             <li>
-                                                <a class="addAgeProfile" href="#!">25-34</a>
+                                                <a href="#!">25-34</a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
-                                                <a class="addAgeProfile" href="#!">35-45</a>
+                                                <a href="#!">35-45</a>
                                             </li>
 
                                         </ul>
                                     </div>
                                     <div class="input-field col s3 center">
-                                        <a class='dropdown-button btn red' href='#' data-activates='dropdown2' id="addGenreLabel"> Fav. Genre</a>
+                                        <a class='dropdown-button btn red' href='#' data-activates='dropdown2'> Fav. Genre</a>
 
                                         <ul id='dropdown2' class='dropdown-content'>
                                             <li>
-                                                <a class = "addGenreProfile" href="#!">Action</a>
+                                                <a href="#!">Action</a>
                                             </li>
                                             <li>
-                                                <a class = "addGenreProfile" href="#!">Comedy</a>
+                                                <a href="#!">Comedy</a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
-                                                <a class = "addGenreProfile" href="#!">Horror</a>
+                                                <a href="#!">Horror</a>
                                             </li>
                                             <li>
-                                                <a class = "addGenreProfile" href="#!">Romance</a>
+                                                <a href="#!">Romance</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -146,9 +146,9 @@
                         </div>
                     </div>
                     <div class="row center">
-                        <button class="btn waves-effect waves-light grey" id="signup-button" type="submit" name="action">ACTION
+                        <a class="btn waves-effect waves-light grey" href="personalprofile.html" type="submit" name="action">ACTION
                             <i class="material-icons">movie_filter</i>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -164,8 +164,6 @@
         stopPropagation: false } );
 
     </script>
-    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
-    <script src='assets/javascript/app.js'></script>
 </body>
 
 </html>
