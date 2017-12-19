@@ -23,7 +23,7 @@
 
 <body>
     <div class="container">
-        <div class="card-panel hoverable">
+        <div class="card-panel hoverable homeBody">
             <div class="row">
                 <div class="col s12 center">
                     <h1>
@@ -38,14 +38,10 @@
                             <span class="subheader">Buddy</span>
                         </p>
                     </div>
-
-                    <h7>
-                        <span class="tagger">Find people who love the same movies as you!</span>
-                    </h7>
                 </div>
             </div>
         </div>
-        <nav id='logged-out-navbar'>
+        <nav>
             <div class="nav-wrapper hoverable red">
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li>
@@ -57,7 +53,7 @@
                 </ul>
             </div>
         </nav>
-        <nav id='logged-in-navbar'>
+        <nav>
             <div class="nav-wrapper hoverable red">
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li>
@@ -69,8 +65,8 @@
             </div>
         </nav>
         <br>
-        <div class="row">
-            <div class="col s8">
+        <div class="row lime">
+            <div class="col s8" id="nowDiv">
                 <h5 class="center">
                     <span class="nowTitle">Now Playing</span>
 
@@ -131,21 +127,21 @@
                             <a class='dropdown-button btn red' href='#' data-activates='dropdown1'>Genre</a>
                             <ul id='dropdown1' class='dropdown-content'>
                                 <li>
-                                    <a class = "genreButton" href="#!">Action</a>
+                                    <a class="genreButton" href="#!">Action</a>
                                 </li>
                                 <li class="divider"></li>
 
                                 <li>
-                                    <a class = "genreButton" href="#!">Comedy</a>
+                                    <a class="genreButton" href="#!">Comedy</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a class = "genreButton" href="#!">Drama</a>
+                                    <a class="genreButton" href="#!">Drama</a>
                                 </li>
                                 <li class="divider"></li>
 
                                 <li>
-                                    <a class = "genreButton" href="#!">Romance</a>
+                                    <a class="genreButton" href="#!">Romance</a>
                                 </li>
                             </ul>
                         </div>
@@ -154,40 +150,51 @@
                 </div>
             </div>
         </div>
-        <nav>
-            <div class="nav-wrapper">
-                <div class="row">
-                    <div class="col s10">
-                        <form>
-                            <div class="input-field">
-                                <input id="search" type="search" />
-                                <label for="search">
-                                    <i class="material-icons">search</i>
-                                </label>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col s2">
-                        <ul class="right">
-                            <li>
-                                <a href="#">
-                                    <i class="material-icons">close</i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="material-icons searchButton">link</i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <div class="row">
-            <div class="col m12">
-                <div class="card">
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Click here to add movies!</a>
 
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal bottom-sheet red">
+            <div class="modal-content">
+                <h6 class="white-text">
+                    <b>Search for your favorite movies to add to your list!</b>
+                </h6>
+                <nav>
+                    <div class="nav-wrapper">
+                        <div class="row">
+                            <div class="col m10">
+                                <form>
+                                    <div class="input-field">
+                                        <input id="search" type="search" />
+                                        <label for="search">
+                                            <i class="material-icons">search</i>
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col s2">
+                                <ul class="right">
+                                    <li>
+                                        <a href="#">
+                                            <i class="material-icons">close</i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="material-icons searchButton">link</i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="row">
+                    <div class="col m12">
+                        <div class="card">
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -225,6 +232,7 @@
                 easing: "easeOutExpo",
                 delay: 1000
             });
+        $('.modal').modal();
     </script>
 
 
@@ -234,3 +242,4 @@
     <!-- insert javascript link -->
     <script src='assets/javascript/app.js'></script>
 </body>
+</html>
